@@ -82,18 +82,19 @@ export default function Navigation(): ReactElement {
       zIndex={999}
     >
       <HStack h={16} align="center" justify="space-between" spacing={4}>
-        <IconButton
+        {/* <IconButton
           size={'md'}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={'Open Menu'}
           display={{ md: 'none' }}
           onClick={isOpen ? onClose : onOpen}
-        />
+        /> */}
         <HStack
           as={'nav'}
           width="full"
           spacing={4}
-          display={{ base: 'none', md: 'flex' }}
+          // display={{ base: 'none', md: 'flex' }}
+          display="flex"
         >
           {routes.map(({ title, link }) => (
             <NavLink key={title} href={link}>
