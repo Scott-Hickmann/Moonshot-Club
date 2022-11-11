@@ -31,20 +31,23 @@ export default function TitleSection() {
           ground. We also inspire and educate the community through speaker
           events and educational workshops.
         </Text>
-        {/* <Stack spacing={6} direction={'row'}>
+        <Stack spacing={6} direction={'row'}>
           <Button
             rounded={'full'}
             px={6}
             colorScheme={'red'}
             bg={'red.400'}
             _hover={{ bg: 'red.500' }}
+            as="a"
+            href="https://forms.gle/sHHzFkP3XC9uQQyTA"
+            target="_blank"
           >
-            Coming Soon
+            Join the Slack
           </Button>
-          <Button rounded={'full'} px={6}>
+          {/* <Button rounded={'full'} px={6}>
             Learn more
-          </Button>
-        </Stack> */}
+          </Button> */}
+        </Stack>
       </Stack>
     </Container>
   );
