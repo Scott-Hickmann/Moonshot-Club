@@ -44,6 +44,19 @@ export default function TitleSection() {
           >
             Join the Slack
           </Button>
+          <Button
+            rounded={'full'}
+            px={6}
+            colorScheme={'red'}
+            bg={'red.400'}
+            _hover={{ bg: 'red.500' }}
+            as="a"
+            href="mailto:jasoncl@stanford.edu"
+            target="_blank"
+          >
+            Contact Us
+          </Button>
+
           {/* <Button rounded={'full'} px={6}>
             Learn more
           </Button> */}
