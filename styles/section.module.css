@@ -1,0 +1,41 @@
+.container { 
+    display: flex; 
+    margin-bottom: 1rem; 
+    color: var(--flame);
+    line-height: 1.2;
+}
+
+.picture {
+    border-radius: 2rem;
+    width: 100%; 
+    height: auto;
+    padding: 1rem;
+}
+
+.head {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+}
+
+.title {
+    font-size: 1.5rem;
+    text-align: right;
+    font-style: italic;
+}
+
+.email {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-align: right;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.email:hover {
+    color: white;
+}
+
+.desc {
+    color:white;
+}

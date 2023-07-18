@@ -1,0 +1,12 @@
+.container {
+    background-color: var(--blackish);
+    padding: 1rem;
+    width: screen;
+    min-height: screen;
+}
+
+.content {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+}
