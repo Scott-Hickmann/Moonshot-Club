@@ -1,14 +1,10 @@
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
   Flex,
   HStack,
-  IconButton,
   Link,
   Stack,
-  useColorMode,
   useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
@@ -16,29 +12,18 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 
-type NavLinkWrapperProps = React.PropsWithChildren<{
-  href: string;
-  active: boolean;
-}>;
+import MoonshotLogo from './icons/moonshotLogo';
 
 type NavLinkProps = React.PropsWithChildren<{
   href: string;
 }>;
 
-const routes = [] as const;
-
-function NavLinkWrapper({
-  href,
-  active,
-  children
-}: NavLinkWrapperProps): ReactElement {
-  if (active) return <>{children}</>;
-  return (
-    <NextLink href={href} passHref>
-      {children}
-    </NextLink>
-  );
-}
+const routes = [
+  { title: 'Home', link: '/' },
+  { title: 'Our Projects', link: '/projects' },
+  { title: 'Our Mission', link: '/mission' },
+  { title: 'Our Team', link: '/team' }
+] as const;
 
 function NavLink({ href, children }: NavLinkProps): ReactElement {
   const router = useRouter();
@@ -49,30 +34,28 @@ function NavLink({ href, children }: NavLinkProps): ReactElement {
   const activeBgColor = useColorModeValue('gray.200', 'gray.700');
 
   return (
-    <NavLinkWrapper href={href} active={active}>
-      <Link
-        px={2}
-        py={1}
-        rounded={'md'}
-        _hover={{
-          textDecoration: 'none',
-          bg: useColorModeValue('gray.200', 'gray.700')
-        }}
-        background={active ? activeBgColor : 'none'}
-      >
-        {children}
-      </Link>
-    </NavLinkWrapper>
+    <Link
+      as={active ? 'span' : NextLink}
+      href={href}
+      px={2}
+      py={1}
+      rounded={'md'}
+      _hover={{
+        textDecoration: 'none',
+        bg: useColorModeValue('gray.200', 'gray.700')
+      }}
+      background={active ? activeBgColor : 'none'}
+    >
+      {children}
+    </Link>
   );
 }
 
 export default function Navigation(): ReactElement {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen } = useDisclosure();
 
   return (
     <Box
-      bg={useColorModeValue('white', 'gray.900')}
       px={4}
       borderBottomWidth={2}
       borderBottomColor={useColorModeValue('gray.200', 'gray.900')}
@@ -80,21 +63,16 @@ export default function Navigation(): ReactElement {
       top={0}
       width="full"
       zIndex={999}
+      backdropFilter="blur(10px)"
     >
       <HStack h={16} align="center" justify="space-between" spacing={4}>
-        {/* <IconButton
-          size={'md'}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          aria-label={'Open Menu'}
-          display={{ md: 'none' }}
-          onClick={isOpen ? onClose : onOpen}
-        /> */}
+        <MoonshotLogo width={70} />
         <HStack
           as={'nav'}
           width="full"
           spacing={4}
           // display={{ base: 'none', md: 'flex' }}
-          display="flex"
+          display="flex" // TODO fix mobile layout
         >
           {routes.map(({ title, link }) => (
             <NavLink key={title} href={link}>
@@ -104,8 +82,23 @@ export default function Navigation(): ReactElement {
         </HStack>
         <Flex alignItems="center" fontSize={{ base: 'sm', md: 'md' }}>
           <HStack spacing={4}>
-            <Button aria-label="Toggle color mode" onClick={toggleColorMode}>
+            {/* <Button aria-label="Toggle color mode" onClick={toggleColorMode}>
               {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </Button> 
+            also disable darkmode in _app.tsx if you want to enable this button
+            */}
+            <Button
+              variant="unstyled"
+              fontWeight="medium"
+              onClick={() => window.open('mailto:jasoncl@stanford.edu')}
+            >
+              Contact
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => window.open('https://forms.gle/sHHzFkP3XC9uQQyTA')}
+            >
+              Join our Slack!
             </Button>
           </HStack>
         </Flex>
