@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import Navigation from './navigation';
+import { Box } from '@chakra-ui/react';
 
 export type LayoutProps = React.PropsWithChildren<{
   title: string;
@@ -38,10 +39,8 @@ export default function Layout({
         {image && <meta name="twitter:image" content={image} />}
         {image && <meta name="twitter:image:alt" content={title} />} */}
       </Head>
-      <main>
-        <Navigation />
-        {children}
-      </main>
+      <Navigation />
+      {children}
     </>
   );
 }
