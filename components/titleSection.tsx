@@ -26,7 +26,7 @@ export default function TitleSection() {
     const timer = setTimeout(() => {
       toast({
         duration: 5000,
-        position: 'bottom-left',
+        position: 'bottom-right',
         isClosable: true,
         render: () => (
           <Box p={3}>
@@ -72,22 +72,24 @@ export default function TitleSection() {
             <b>talking fish</b>, and some other things. We welcome all majors
             and backgrounds. Come join us!
           </MotionText>
-          <Button
-            onClick={() => window.open('https://forms.gle/sHHzFkP3XC9uQQyTA')}
-          >
-            Join us!
-          </Button>
+          <HStack>
+            <Button
+              onClick={() => window.open('https://forms.gle/sHHzFkP3XC9uQQyTA')}
+              bgColor="orange.500"
+            >
+              Join our Slack!
+            </Button>
+            <Button>
+              <a href="projects">See our projects</a>
+            </Button>
+          </HStack>
           <Spacer h="10vh" />
         </Box>
         <VStack w={{ base: '100%', md: '50%' }} id="showcase" h="100%">
           <Tilt>
             <MotionBox
-              as="video"
-              src="/vids/couchvid.mp4"
-              autoPlay
-              loop
-              playsInline
-              muted
+              as="img"
+              src="/vids/couchvid.gif"
               borderRadius="lg"
               maxH="70vh"
               initial={{ opacity: 0, scale: 0.9 }}
