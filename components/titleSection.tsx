@@ -13,12 +13,15 @@ import {
   VStack
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 
-const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
+const MotionBox = motion(Box);
+
+const MySwiper = dynamic(() => import('./mySwiper'), { ssr: false });
 
 export default function TitleSection() {
   const toast = useToast();
@@ -95,7 +98,7 @@ export default function TitleSection() {
           <Spacer h="10vh" />
         </Box>
         <VStack w={{ base: '100%', md: '50%' }} id="showcase" h="100%">
-          <Tilt>
+          {/* <Tilt>
             <MotionBox
               as="img"
               src="/vids/couchvid.gif"
@@ -105,7 +108,8 @@ export default function TitleSection() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 1 }}
             />
-          </Tilt>
+          </Tilt> */}
+          <MySwiper />
         </VStack>
       </Stack>
     </Container>
