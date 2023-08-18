@@ -6,6 +6,7 @@ import {
   HStack,
   Image,
   Spacer,
+  Stack,
   Text,
   useBreakpointValue,
   useToast,
@@ -25,7 +26,7 @@ export default function TitleSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
       toast({
-        duration: 5000,
+        duration: 3000,
         position: 'bottom-right',
         isClosable: true,
         render: () => (
@@ -42,12 +43,13 @@ export default function TitleSection() {
 
   return (
     <Container maxW={'7xl'} h="100%" py={20}>
-      <HStack
+      <Stack
         id="two-col"
         w="100%"
         justify="space-between"
         align="center"
         spacing={10}
+        direction={{ base: 'column', lg: 'row' }}
       >
         <Box textAlign="left" maxW={{ md: '500px' }}>
           <MotionHeading
@@ -79,8 +81,15 @@ export default function TitleSection() {
             >
               Join our Slack!
             </Button>
-            <Button>
-              <a href="projects">See our projects</a>
+            <Button
+              onClick={() =>
+                window.open(
+                  'https://docs.google.com/document/d/1XLyknbRcXWcBQS-BRnRrRTUF_A_wgspZla3pCkcOaIg/edit?usp=sharing',
+                  '_blank'
+                )
+              }
+            >
+              See our projects
             </Button>
           </HStack>
           <Spacer h="10vh" />
@@ -98,7 +107,7 @@ export default function TitleSection() {
             />
           </Tilt>
         </VStack>
-      </HStack>
+      </Stack>
     </Container>
   );
 }

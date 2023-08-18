@@ -5,15 +5,24 @@ export default function Mission() {
   return (
     <>
       <Navigation />
-      <Box id="mission" w={{ base: '100%', md: '60%' }} mx="auto" p={5}>
-        <Heading pb={5}>What&apos;s Up With Moonshot?</Heading>
+      <Box
+        id="mission"
+        w={{ base: '100%', md: '60%' }}
+        mx="auto"
+        maxW="1000px"
+        p={5}
+        my={5}
+        bgColor="gray.700"
+        borderRadius="10px"
+        boxShadow="dark-sm"
+      >
+        <Heading pb={5}>Our Mission</Heading>
         <Text>
-          Stanford Moonshot is the place for all forms of creativity to thrive:
-          Want to ride a motorized couch around campus? Want to make customized
-          cloaks for you and all your friends? How about using AI to make a chat
-          bot to respond to all your messages for you? Have any other crazy
-          project that you want to start but aren&apos;t sure how, or don&apos;t
-          have the resources? Then this is the place for you!
+          We drive inclusive tinkering by providing students with a
+          collaborative environment, mentorship, and resources to get their
+          dream engineering-related projects—or Moonshots—off the ground. We
+          also inspire and educate the community through speaker events and
+          educational workshops.
         </Text>
       </Box>
     </>
