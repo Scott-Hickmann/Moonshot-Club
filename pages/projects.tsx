@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react';
+
 import Navigation from '../components/navigation';
 
 export default function Projects() {
