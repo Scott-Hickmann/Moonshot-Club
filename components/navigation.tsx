@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   HStack,
+  Slide,
   Link,
   Stack,
   useColorModeValue,
@@ -11,6 +12,7 @@ import {
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'; // Importing the Chakra UI icons
 
 import MoonshotLogo from './icons/moonshotLogo';
 
@@ -52,7 +54,7 @@ function NavLink({ href, children }: NavLinkProps): ReactElement {
 }
 
 export default function Navigation(): ReactElement {
-  const { isOpen } = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box
@@ -71,8 +73,7 @@ export default function Navigation(): ReactElement {
           as={'nav'}
           width="full"
           spacing={4}
-          // display={{ base: 'none', md: 'flex' }}
-          display="flex" // TODO fix mobile layout
+          display={{ base: 'none', md: 'flex' }}
         >
           {routes.map(({ title, link }) => (
             <NavLink key={title} href={link}>
@@ -80,13 +81,12 @@ export default function Navigation(): ReactElement {
             </NavLink>
           ))}
         </HStack>
-        <Flex alignItems="center" fontSize={{ base: 'sm', md: 'md' }}>
+        <Flex
+          alignItems="center"
+          fontSize={{ base: 'sm', md: 'md' }}
+          display={{ base: 'none', md: 'flex' }}
+        >
           <HStack spacing={4}>
-            {/* <Button aria-label="Toggle color mode" onClick={toggleColorMode}>
-              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            </Button> 
-            also disable darkmode in _app.tsx if you want to enable this button
-            */}
             <Button
               variant="unstyled"
               fontWeight="medium"
@@ -102,6 +102,9 @@ export default function Navigation(): ReactElement {
             </Button>
           </HStack>
         </Flex>
+        <Box display={{ base: 'inline-flex', md: 'none' }} onClick={onToggle}>
+          {isOpen ? <CloseIcon /> : <HamburgerIcon />}
+        </Box>
       </HStack>
       {isOpen ? (
         <Box pb={4} display={{ md: 'none' }}>
