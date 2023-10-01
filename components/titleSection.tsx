@@ -100,7 +100,7 @@ export default function TitleSection() {
               Email us
             </Button>
           </HStack>
-          <Spacer h="10vh" />
+          {/* <Spacer h="10vh" /> */}
         </Box>
         <VStack w={{ base: '100%', md: '50%' }} id="showcase" h="100%">
           <MySwiper />

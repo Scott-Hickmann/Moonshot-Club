@@ -94,6 +94,7 @@ const MySwiper = () => {
     <Box
       // h="500px"
       w="600px"
+      maxW="100%"
       overflow="hidden"
       position="relative"
       boxShadow="lg"
@@ -106,6 +107,7 @@ const MySwiper = () => {
             key={index}
             w="500px"
             h="500px"
+            maxW={'100%'}
             margin="auto"
             justify="center"
             borderRadius={50}
