@@ -12,10 +12,10 @@ const theme = extendTheme({
     initialColorMode: 'dark',
     useSystemColorMode: false,
   },
-  fonts: {
-    heading: lora.style.fontFamily,
-    body: lora.style.fontFamily,
-  }
+  // fonts: {
+  //   heading: lora.style.fontFamily,
+  //   body: lora.style.fontFamily,
+  // }
 });
 
 export default function App({ Component, pageProps }: AppProps) {
