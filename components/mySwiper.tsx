@@ -37,29 +37,63 @@ const MySwiper = () => {
   }, [ref]);
 
   const swiperChildren = [
-    <Image src="/vids/couchvid.gif" alt="couch vid" h="100%" />,
-    <iframe
-      style={{ width: '100%', height: '100%' }}
-      src="https://stanforddaily.com/2023/04/16/meet-stanford-moonshot-club-the-ones-behind-the-viral-motorized-couch/"
-      title="daily article"
-    ></iframe>,
-    <Image src="/images/astrotalk.jpg" alt="astro talk" fit="fill" />,
-    <iframe
-      style={{ width: '100%', height: '100%' }}
-      src="https://stanforddaily.com/2023/01/25/a-moonshot-story-qa-with-ceo-astro-teller/"
-      title="astro teller daily article"
-    ></iframe>,
-    <Image src="/images/juliadice.jpg" alt="julia dice" fit="fill" />,
-    <Image src="/images/introgif.gif" alt="intro gif" fit="fill" />,
-    <Image src="/images/buildseshpic.jpg" alt="build sesh pic" fit="fill" />
+    <Image
+      src="/vids/couchvid.gif"
+      alt="couch vid"
+      h="100%"
+      borderRadius={8}
+    />,
+    <Box
+      height="100%"
+      width="100%"
+      padding={8}
+      backgroundColor={'white'}
+      borderRadius={8}
+    >
+      <iframe
+        style={{ width: '100%', height: '100%' }}
+        src="https://stanforddaily.com/2023/04/16/meet-stanford-moonshot-club-the-ones-behind-the-viral-motorized-couch/"
+        title="daily article"
+      />
+    </Box>,
+    <Image
+      src="/images/astrotalk.jpg"
+      alt="astro talk"
+      fit="fill"
+      borderRadius={8}
+    />,
+    <Box
+      height="100%"
+      width="100%"
+      padding={8}
+      backgroundColor={'white'}
+      borderRadius={8}
+    >
+      <iframe
+        style={{ width: '100%', height: '100%' }}
+        src="https://stanforddaily.com/2023/01/25/a-moonshot-story-qa-with-ceo-astro-teller/"
+        title="astro teller daily article"
+      />
+    </Box>,
+    <Image
+      src="/images/juliadice.jpg"
+      alt="julia dice"
+      fit="fill"
+      borderRadius={8}
+    />,
+    <Image
+      src="/images/buildseshpic.jpg"
+      alt="build sesh pic"
+      fit="fill"
+      borderRadius={8}
+    />
   ];
 
   return (
     // add solid white border
     <Box
-      borderRadius="lg"
-      h="500px"
-      w="500px"
+      // h="500px"
+      w="600px"
       overflow="hidden"
       position="relative"
       boxShadow="lg"
@@ -74,6 +108,7 @@ const MySwiper = () => {
             h="500px"
             margin="auto"
             justify="center"
+            borderRadius={50}
           >
             {child}
           </HStack>
