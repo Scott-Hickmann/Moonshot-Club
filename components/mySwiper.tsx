@@ -93,7 +93,7 @@ const MySwiper = () => {
     // add solid white border
     <Box
       // h="500px"
-      w="600px"
+      w="800px"
       maxW="100%"
       overflow="hidden"
       position="relative"
@@ -105,8 +105,8 @@ const MySwiper = () => {
         {swiperChildren.map((child, index) => (
           <HStack
             key={index}
-            w="500px"
-            h="500px"
+            w="700px"
+            h="700px"
             maxW={'100%'}
             margin="auto"
             justify="center"

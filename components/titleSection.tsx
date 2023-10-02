@@ -61,8 +61,10 @@ export default function TitleSection() {
         align="center"
         spacing={10}
         direction={{ base: 'column', lg: 'row' }}
+        paddingLeft={2}
+        paddingRight={2}
       >
-        <Box textAlign="left" maxW={{ md: '500px' }}>
+        <Box textAlign="left" maxW={{ md: '500px' }} margin={6}>
           <MotionHeading
             pb={3}
             fontWeight="bold"
