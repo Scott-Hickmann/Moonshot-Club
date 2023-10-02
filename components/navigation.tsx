@@ -1,10 +1,11 @@
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'; // Importing the Chakra UI icons
 import {
   Box,
   Button,
   Flex,
   HStack,
-  Slide,
   Link,
+  Slide,
   Stack,
   useColorModeValue,
   useDisclosure
@@ -12,7 +13,6 @@ import {
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'; // Importing the Chakra UI icons
 
 import MoonshotLogo from './icons/moonshotLogo';
 
@@ -97,6 +97,7 @@ export default function Navigation(): ReactElement {
             <Button
               variant="outline"
               onClick={() => window.open('https://forms.gle/sHHzFkP3XC9uQQyTA')}
+              backgroundColor={'orange.500'}
             >
               Join our Slack!
             </Button>
