@@ -23,8 +23,8 @@ type NavLinkProps = React.PropsWithChildren<{
 const routes = [
   { title: 'Home', link: '/' },
   { title: 'Our Projects', link: '/projects' },
-  { title: 'Our Mission', link: '/mission' },
-  { title: 'Our Team', link: '/team' }
+  { title: 'Our Mission', link: '/mission' }
+  // { title: 'Our Team', link: '/team' }
 ] as const;
 
 function NavLink({ href, children }: NavLinkProps): ReactElement {
