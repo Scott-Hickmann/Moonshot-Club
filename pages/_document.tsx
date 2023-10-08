@@ -9,9 +9,10 @@ export default class CustomDocument extends Document {
         <Head>
           <meta charSet="UTF-8" />
           <meta content="ie=edge" httpEquiv="X-UA-Compatible" />
+          <link rel="stylesheet"></link>
         </Head>
         <body>
-          <ColorModeScript initialColorMode="light" />
+          <ColorModeScript initialColorMode="dark" />
           <Main />
           <NextScript />
         </body>
