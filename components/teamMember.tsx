@@ -1,5 +1,5 @@
 // components/TeamMember.tsx
-import { Box, Image, Text, Center } from "@chakra-ui/react";
+import { Box, Center, Image, Text } from '@chakra-ui/react';
 
 type TeamMemberProps = {
   imageSrc?: string;
@@ -8,7 +8,7 @@ type TeamMemberProps = {
 
 const TeamMember: React.FC<TeamMemberProps> = ({ imageSrc, name }) => {
   // Fallback to default image if imageSrc is not provided
-  const imageUrl = imageSrc ? imageSrc : "/images/emptyprofile.jpg";
+  const imageUrl = imageSrc ? imageSrc : '/images/emptyprofile.jpg';
   return (
     <Center flexDirection="column" p={4}>
       <Box

@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 import Navigation from './navigation';
-import { Box } from '@chakra-ui/react';
 
 export type LayoutProps = React.PropsWithChildren<{
   title: string;

@@ -5,27 +5,17 @@ import {
   Heading,
   HStack,
   Image,
-  Spacer,
   Stack,
   Text,
   useBreakpointValue,
-  useToast,
-  VStack
+  useToast
 } from '@chakra-ui/react';
-import {
-  Carousel,
-  LeftButton,
-  Provider,
-  RightButton
-} from 'chakra-ui-carousel';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
-import Tilt from 'react-parallax-tilt';
 
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
-const MotionBox = motion(Box);
 
 const MySwiper = dynamic(() => import('./mySwiper'), { ssr: false });
 
@@ -53,60 +43,65 @@ export default function TitleSection() {
   }, [toast]);
 
   return (
-    <Container maxW={'7xl'} h="100%" py={20}>
+    <Container
+      maxW={'7xl'}
+      py={20}
+      flex={1}
+      display="flex"
+      alignItems="stretch"
+      overflow={{ base: 'auto', md: 'hidden' }}
+    >
       <Stack
-        id="two-col"
-        w="100%"
-        justify="space-between"
-        align="center"
+        width="full"
+        justify={{ base: 'flex-start', md: 'space-evenly' }}
+        align={{ base: 'center', md: 'stretch' }}
         spacing={10}
-        direction={{ base: 'column', lg: 'row' }}
-        paddingLeft={2}
-        paddingRight={2}
+        direction={{ base: 'column', md: 'row' }}
       >
-        <Box textAlign="left" maxW={{ md: '500px' }} margin={6}>
-          <MotionHeading
-            pb={3}
-            fontWeight="bold"
-            fontSize={fontSize}
-            lineHeight={'110%'}
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Stanford Moonshot Club
-          </MotionHeading>
-          <MotionText
-            fontSize={'lg'}
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            pb="5"
-          >
-            We tinker with <b>robot arms</b>, <b>motorized couches</b>,{' '}
-            <b>talking fish</b>, and some other things. We welcome all majors
-            and backgrounds. Come build with us!
-          </MotionText>
-          <HStack>
-            <Button
-              onClick={() => window.open('https://forms.gle/sHHzFkP3XC9uQQyTA')}
-              bgColor="orange.500"
+        <Box flex={1} textAlign="left" margin={6} alignSelf="center" px={2}>
+          <Box maxW="500px">
+            <MotionHeading
+              pb={3}
+              fontWeight="bold"
+              fontSize={fontSize}
+              lineHeight={'110%'}
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              Join our club!
-            </Button>
-            <Button
-              onClick={() =>
-                window.open('mailto:jasoncl@stanford.edu', '_blank')
-              }
+              Stanford Moonshot Club
+            </MotionHeading>
+            <MotionText
+              fontSize={'lg'}
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              pb="5"
             >
-              Email us
-            </Button>
-          </HStack>
-          {/* <Spacer h="10vh" /> */}
+              We tinker with <b>robot arms</b>, <b>motorized couches</b>,{' '}
+              <b>talking fish</b>, and some other things. We welcome all majors
+              and backgrounds. Come build with us!
+            </MotionText>
+            <HStack>
+              <Button
+                onClick={() =>
+                  window.open('https://forms.gle/sHHzFkP3XC9uQQyTA')
+                }
+                bgColor="orange.500"
+              >
+                Join our club!
+              </Button>
+              <Button
+                onClick={() =>
+                  window.open('mailto:jasoncl@stanford.edu', '_blank')
+                }
+              >
+                Email us
+              </Button>
+            </HStack>
+          </Box>
         </Box>
-        <VStack w={{ base: '100%', md: '50%' }} id="showcase" h="100%">
-          <MySwiper />
-        </VStack>
+        <MySwiper />
       </Stack>
     </Container>
   );

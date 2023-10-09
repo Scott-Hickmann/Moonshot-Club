@@ -1,51 +1,23 @@
-/* eslint-disable react/jsx-key */
-import 'swiper/swiper-bundle.css';
+import 'swiper/css';
 
-import { Box, HStack, Image } from '@chakra-ui/react';
-import { Ref, useEffect, useRef } from 'react';
-import Swiper from 'react-id-swiper';
+import { Box, Image, useBreakpointValue } from '@chakra-ui/react';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const MySwiper = () => {
-  const ref = useRef({
-    swiper: {
-      slideNext: () => undefined,
-      slidePrev: () => undefined,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      slideTo: (index: number) => undefined,
-      activeIndex: 0,
-      slides: []
-    }
-  });
-
-  useEffect(() => {
-    const goNext = () => {
-      const swiper = ref.current?.swiper;
-      if (swiper) {
-        if (swiper.activeIndex === swiper.slides.length - 1) {
-          console.log('reset', swiper);
-          swiper.slideTo(0);
-        } else {
-          swiper.slideNext();
-        }
-      }
-    };
-
-    const interval = setInterval(() => {
-      goNext();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [ref]);
-
   const swiperChildren = [
     <Image
+      key="couch"
       src="/vids/couchvid.gif"
       alt="couch vid"
-      h="100%"
       borderRadius={8}
+      minH={0}
+      maxH="full"
     />,
     <Box
-      height="100%"
-      width="100%"
+      key="article"
+      width="full"
+      height="full"
       padding={8}
       backgroundColor={'white'}
       borderRadius={8}
@@ -57,14 +29,18 @@ const MySwiper = () => {
       />
     </Box>,
     <Image
+      key="astro"
       src="/images/astrotalk.jpg"
       alt="astro talk"
       fit="fill"
+      minH={0}
+      maxH="full"
       borderRadius={8}
     />,
     <Box
-      height="100%"
-      width="100%"
+      key="astroarticle"
+      width="full"
+      height="full"
       padding={8}
       backgroundColor={'white'}
       borderRadius={8}
@@ -76,44 +52,60 @@ const MySwiper = () => {
       />
     </Box>,
     <Image
+      key="julia"
       src="/images/juliadice.jpg"
       alt="julia dice"
       fit="fill"
+      minH={0}
+      maxH="full"
       borderRadius={8}
     />,
     <Image
+      key="buildsesh"
       src="/images/buildseshpic.jpg"
       alt="build sesh pic"
       fit="fill"
+      minH={0}
+      maxH="full"
       borderRadius={8}
     />
   ];
 
+  const sliderAlign = useBreakpointValue({ base: 'flex-start', md: 'center' });
+
   return (
     // add solid white border
     <Box
-      // h="500px"
-      w="800px"
-      maxW="100%"
-      overflow="hidden"
-      position="relative"
+      overflow={{ base: 'initial', md: 'hidden' }}
       boxShadow="lg"
-      margin="auto"
+      flex={1}
+      display="flex"
+      justifyContent="flex-end"
+      pb={{ base: 20, md: 0 }}
+      height={{ base: 'full', md: 'auto' }}
+      width="full"
     >
-      {/* bugs out when there's only 1 element */}
-      <Swiper ref={ref as unknown as Ref<HTMLDivElement>}>
+      <Swiper
+        spaceBetween={10}
+        loop
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false
+        }}
+        modules={[Autoplay]}
+      >
         {swiperChildren.map((child, index) => (
-          <HStack
+          <SwiperSlide
             key={index}
-            w="700px"
-            h="700px"
-            maxW={'100%'}
-            margin="auto"
-            justify="center"
-            borderRadius={50}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: sliderAlign,
+              userSelect: 'none'
+            }}
           >
             {child}
-          </HStack>
+          </SwiperSlide>
         ))}
       </Swiper>
     </Box>

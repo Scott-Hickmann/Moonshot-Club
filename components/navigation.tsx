@@ -5,7 +5,6 @@ import {
   Flex,
   HStack,
   Link,
-  Slide,
   Stack,
   useColorModeValue,
   useDisclosure
@@ -103,12 +102,16 @@ export default function Navigation(): ReactElement {
             </Button>
           </HStack>
         </Flex>
-        <Box display={{ base: 'inline-flex', md: 'none' }} onClick={onToggle}>
+        <Box
+          display={{ base: 'inline-flex', md: 'none' }}
+          cursor="pointer"
+          onClick={onToggle}
+        >
           {isOpen ? <CloseIcon /> : <HamburgerIcon />}
         </Box>
       </HStack>
       {isOpen ? (
-        <Box pb={4} display={{ md: 'none' }}>
+        <Box py={4} display={{ md: 'none' }}>
           <Stack as={'nav'} spacing={4}>
             {routes.map(({ title, link }) => (
               <NavLink key={title} href={link}>
