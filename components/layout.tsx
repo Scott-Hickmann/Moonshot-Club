@@ -19,7 +19,7 @@ export default function Layout({
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#171923" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         {/* Open Graph */}
