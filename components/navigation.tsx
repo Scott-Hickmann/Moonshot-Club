@@ -89,7 +89,11 @@ export default function Navigation(): ReactElement {
             <Button
               variant="unstyled"
               fontWeight="medium"
-              onClick={() => window.open('mailto:jasoncl@stanford.edu')}
+              onClick={() =>
+                window.open(
+                  'https://docs.google.com/document/d/1ud3LKEHNIb6js8K_9OPFvJnOFqJ0EUFFvD0iBptjxHI/edit?usp=sharing'
+                )
+              }
             >
               Contact
             </Button>
