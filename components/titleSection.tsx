@@ -93,7 +93,10 @@ export default function TitleSection() {
               </Button>
               <Button
                 onClick={() =>
-                  window.open('mailto:jasoncl@stanford.edu', '_blank')
+                  window.open(
+                    'https://docs.google.com/document/d/1ud3LKEHNIb6js8K_9OPFvJnOFqJ0EUFFvD0iBptjxHI/edit',
+                    '_blank'
+                  )
                 }
               >
                 Email us
